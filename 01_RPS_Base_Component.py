@@ -1,7 +1,7 @@
 import random 
  
-# Functions go here
 
+# Functions go here
 
 # Main routine goes here
 
