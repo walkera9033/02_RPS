@@ -1,6 +1,5 @@
 # Function used to check input is valid
 
-
 def check_rounds():
 		while True:
 			response = input("How many rounds: ")
@@ -21,6 +20,7 @@ def check_rounds():
 		
 				return response 
 
+
 # Main routine goes here...
 
 rounds_played = 0
@@ -32,3 +32,28 @@ rounds = check_rounds()
 
 end_game = "no"
 while end_game == "no":
+
+  # Start of Game Play Loop
+
+  # Rounds Heading
+	print()
+	if rounds =="":
+		 heading = "continuous Mode :" \
+		 "Round {}".format(rounds_played + 1)
+else:  
+	   heading = "Round {} of " \
+	  "{}".format(rounds_played + 1, rounds)
+
+  print(heading)
+	choose = input("{} or 'xxx' to " "end: ".format(choose_instructions))
+
+	# End game if exit code is typed 
+	if choose == "xxx":
+			break
+
+
+
+
+
+
+
