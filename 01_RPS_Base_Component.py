@@ -1,27 +1,56 @@
 import random 
+
  
-
 # Functions go here
-
 def check_rounds():
-		while True:
-			response = input("How many rounds: ")
+	while True:
+		response = input("How many rounds: ")
 
-			round_error = "Please type either <enter" / "or an integer that is more than 0\n"	
+		round_error = "Please type either <enter / or an integer that is more than 0\n"	
 
-			if response != "":
-				try:
-					response = int(response)
 
-					if response < 1:
-						print(round_error)
-					continue
-				except ValueError:
+		# if infinite mode not chosen, check response
+		# is an integer that is more than 0
+		if response == "":
+			return response
+
+		else:
+
+			try:
+				response = int(response)
+
+				# if response is too low, go back to
+				# start of loop
+				if response < 1:
 					print(round_error)
+					continue
+
+				else:
+					return response
+
+			# if response is not an integer, go back to
+			# start of loop
+			except ValueError:
+				print(round_error)
 				continue
-		
-		
-				return response 
+			
+
+
+def choice_checker (question, options, error):
+	valid = False
+	while not valid :
+
+		# Ask user for choice
+		response = input(question).lower()
+
+		for item in options:
+			if response == item[0]:
+				return item
+			elif response == item:
+				return item
+
+		print(error)
+				
 
 # Main routine goes here
 
@@ -35,9 +64,7 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # ask user for # of rounds then loop...
 rounds_played = 0
-choose_instructions = "Please choose rock (r), paper" / "(p) or scissors (s)"	
-
-
+choose_instructions = "Please choose rock (r), paper (p) or scissors (s)"	
 
 # Ask user for # of rounds, <enter> for infinite mode
 rounds = check_rounds()
@@ -45,25 +72,37 @@ rounds = check_rounds()
 end_game = "no"
 while end_game == "no":
 
-  # Start of Game Play Loop
+	# Start of Game Play Loop
 
-  # Rounds Heading
+	# Rounds Heading for continuous mode / specific # of rounds
 	print()
-	if rounds =="":
-		 heading = "continuous Mode :" \
-		"Round {}".format(rounds_played + 1)
-	else:  
-		heading = "Round {} of " \
-		"{}".format(rounds_played + 1, rounds)
+	if rounds == "":
+		heading = "continuous Mode :  Round {}".format(rounds_played + 1)
+
+	else:   
+		heading = "Round {} of {}".format(rounds_played + 1, rounds)
 
 	print(heading)
-	choose = input("{} or 'xxx' to " "end: ".format(choose_instructions))
 
-		# End game if exit code is typed 
-	if choose == "xxx":
+	choose_error = "Please choose from rock " \
+	"Paper / scissors (or xxx to quit"
+	
+	# Ask user for choice and check its valid
+	choose = choice_checker(choose_instruction, rps_list,
+
+
+	# End game if exit code is typed 
+	  if choose == "xxx":
 		break
 
+	#  **** rest of loop / game *****	
+	  print ("You chose {}".format(choosen))
 
+	rounds_played += 1
+
+	# end game if requsted # of rounds has been played
+	if rounds_played == rounds:
+		break
 
 
 # Ask user if they want to see their game history.
