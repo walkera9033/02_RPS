@@ -85,6 +85,8 @@ while end_game == "no":
 		
 	# Ask user for choice and check its valid
 	choose_error = "Please choose from rock  / paper / scissors (or xxx to quit)"
+
+	# Ask user for choice and check its valid
 	choose = choice_checker(choose_instructions, rps_list, choose_error)
 	
 # get computer choice
@@ -93,9 +95,9 @@ while end_game == "no":
 
 # compare choices
 
-	# End game if exit code is typed 
-	if choose == "xxx":
-	  	 break
+# End game if exit code is typed 
+ if choose == "xxx":
+	    break
 
 	#  **** rest of loop / game *****	
 	print ("You chose {}".format(choose))
