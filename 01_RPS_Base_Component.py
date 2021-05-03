@@ -11,7 +11,7 @@ def check_rounds():
 
 		# if infinite mode not chosen, check response
 		# is an integer that is more than 0
-		if response == "":
+		if response != "":
 			try:
 				response = int(response)
 
@@ -29,6 +29,9 @@ def check_rounds():
 			except ValueError:
 				print(round_error)
 				continue
+
+		else:
+			return response
 			
 
 
@@ -39,7 +42,7 @@ def choice_checker (question, valid_list, error):
 		# Ask user for choice
 		response = input(question).lower()
 
-		for item in options:
+		for item in valid_list:
 			if response == item[0]:
 				return item
 			elif response == item:
@@ -73,24 +76,29 @@ while end_game == "no":
 	# Rounds Heading for continuous mode / specific # of rounds
 	print()
 	if rounds == "":
-		heading = "continuous Mode:  Round {}".form(rounds_played + 1)
+		heading = "continuous Mode:  Round {}".format(rounds_played + 1)
 	else:   
 		heading = "Round {} of {}".format(rounds_played + 1, rounds)
 
 	print(heading)
   
-	choose_error = "Please choose from rock " \ "paper / scissors (or xxx to quit)"
-	
+		
 	# Ask user for choice and check its valid
-	choose = choice_checker(choose_instruction, rps_list,)
+	choose_error = "Please choose from rock  / paper / scissors (or xxx to quit)"
+	choose = choice_checker(choose_instructions, rps_list, choose_error)
 	
+# get computer choice
+	comp_choice = random.choice(rps_list[:-1])
+	print("Comp Choice: ", comp_choice
+
+# compare choices
 
 	# End game if exit code is typed 
 	if choose == "xxx":
 	  	 break
 
 	#  **** rest of loop / game *****	
-	  print ("You chose {}".format(choosen))
+	print ("You chose {}".format(choose))
 
 	rounds_played += 1
 
