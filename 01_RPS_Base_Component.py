@@ -83,18 +83,58 @@ while end_game == "no":
 	print(heading)
 
 
-	# Ask user for choice and check its valid
-	choose_error = "Please choose from rock  / paper / scissors (or xxx to quit)"
-
-	# Ask user for choice and check its valid
-	choose = choice_checker(choose_instructions, rps_list, choose_error)
-
-	# get computer choice
+# get computer choice
 	comp_choice = random.choice(rps_list[:-1])
 	print("Comp Choice: ", comp_choice)
 
-	# compare choices
+	chose = choice_checker("chose rock / paper / scissors (r/p/s): ", rps_list, "Please chose from rock, Paper / scissors (or xxx to quit).")
 
+  # End game if exit code is typed
+      if choose == "xxx":
+			  break
+
+    # End game if round entered is finished
+ 
+    # Compare options/choices between computer choice and User choice 
+    # if Choices are the same, it is a tie.
+ 
+    if comp_choice == choose:
+        result = "tie"
+        # three ways to win...
+    elif comp_choice == "rock" and choose == "paper":
+        result = "win"
+    elif comp_choice == "scissors" and choose == "rock":
+        result = "win"
+    elif comp_choice == "paper" and choose == "scissors":
+        result = "win"
+ 
+    # if you don't tie / win, you lose
+    else:
+        result = "lose"
+        
+    print("User: {} vs Computer: {} - {}".format(choose, comp_choice, result))
+    print()
+
+
+
+ 
+    if rounds!= "" and rounds_played >= rounds - 1:
+        break
+ 
+    # *** rest of loop / game ***
+    print("You chose {}". format (choose))
+ 
+    rounds_played += 1
+ 
+# Ask user if they want to see their game history.
+# if 'yes' show game history
+ 
+# Show statistics
+ 
+# end game
+print()
+print("Thanks for playing")
+print()
 	# End game if exit code is typed 
 	if choose == "xxx":
 		break
