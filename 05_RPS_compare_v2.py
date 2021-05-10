@@ -13,29 +13,20 @@ for item in rps_list:
 
 		# Compare options between computer and user
 
+		# if the choices are the same, it's a tie
 		if comp_choice == user_choice:
 			result = "tie"
+
+		# three ways to win...
 		elif comp_choice == "rock" and user_choice == "paper":
 			result = "win"
-
-		elif comp_choice == "scissors" and user_choice == "paper":
-			result = "lose"
+		elif comp_choice == "scissors" and user_choice == "rock":
+			result = "win"
 		elif comp_choice == "paper" and user_choice == "scissors":
 			result = "win"
 
-		elif comp_choice == "paper" and user_choice == "rock":
-			result = "lose"
-		elif comp_choice == "rock" and user_choice == "paper":
-			result = "win"
-
-		elif comp_choice == "scissors" and user_choice == "paper":
-			result = "lose"
-		elif comp_choice == "paper" and user_choice == "scissors":
-			result = "win"
-
-		elif comp_choice == "scissors" and comp_choice == "rock":
-			result = "win"
-		elif comp_choice == "rock" and user_choice == "scissors":
+		# if you don't tie / win, you lose
+		else:
 			result = "lose"
 
 		print("User: {} vs Computer: {} - {}".format(user_choice, comp_choice, result))
