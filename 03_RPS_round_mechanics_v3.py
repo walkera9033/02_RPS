@@ -44,8 +44,8 @@ else:
 	   heading = "Round {} of " \
 	  "{}".format(rounds_played + 1, rounds)
 
-  print(heading)
-	choose = input("{} or 'xxx' to " "end: ".format(choose_instructions))
+		print(heading)
+		choose = input("{} or 'xxx' to " "end: ".format(choose_instructions))
 
 	# End game if exit code is typed 
 	if choose == "xxx":

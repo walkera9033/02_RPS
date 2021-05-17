@@ -16,5 +16,21 @@ for item in test_results:
 
 	result = item
 
-	if result == "tie":
-		result
+	if item == "tie":
+		result = "its a tie"
+		rounds_drawn +=1
+  elif item == "loss":
+		rounds_lost += 1
+
+print(results)
+
+print()
+# Quick Calculations ( stats )
+rounds_won = rounds_played - rounds_lost - rounds_drawn
+
+# End of game Statements
+print ()
+print('***** End Game Summary *****')
+print("Won: {} \t|\t Lost: {} \t|\t Draw: "{}".format(rounds_won, rounds_lost, rounds_drawn))
+print()
+print("Thanks for playing!")
