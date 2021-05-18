@@ -18,7 +18,7 @@ for item in test_results:
 
 	if item == "tie":
 		result = "its a tie"
-		rounds_drawn +=1
+		rounds_drawn += 1
   elif item == "loss":
 		rounds_lost += 1
 

@@ -63,8 +63,8 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # ask user for # of rounds then loop...
 rounds_played = 0
-
 rounds_lost = 0
+rounds_won = 0
 rounds_drawn = 0
 
 choose_instructions = "Please chose rock (r), paper (p) or scissors (s)"	
@@ -91,7 +91,7 @@ while end_game == "no":
 	comp_choice = random.choice(rps_list[:-1])
 	print("Comp Choice: ", comp_choice)
 
-	chose = choice_checker("chose rock / paper / scissors (r/p/s): ", rps_list, "Please chose from rock, Paper / scissors (or xxx to quit).")
+	choose = choice_checker("chose rock / paper / scissors (r/p/s): ", rps_list, "Please choose from rock, Paper / scissors (or xxx to quit).")
 
   # End game if exit code is typed
 	if chose == "xxx":
@@ -101,32 +101,32 @@ while end_game == "no":
  
     # Compare options/choices between computer choice and User choice 
     # if Choices are the same, it is a tie.
-    if comp_choice == chose:
-       result = "tie"
-      # three ways to win...
-    elif comp_choice == "rock" and chose == "paper":
-        result = "win"
-    elif comp_choice == "scissors" and chose == "rock":
-        result = "win"
-    elif comp_choice == "paper" and chose == "scissors":
-        result = "win"
- 
-    # if you don't tie / win, you lose
-    else:
-        result = "lose"
-        
-    print("User: {} vs Computer: {} - {}".format(chose, comp_choice, result))
-    print()
+	if comp_choice == chose:
+			result = "tie"
+		# three ways to win...
+	elif comp_choice == "rock" and chose == "paper":
+			result = "win"
+	elif comp_choice == "scissors" and chose == "rock":
+			result = "win"
+	elif comp_choice == "paper" and chose == "scissors":
+			result = "win"
+
+	# if you don't tie / win, you lose
+	else:
+			result = "lose"
+
+	print("User: {} vs Computer: {} - {}".format(chose, comp_choice, result))
+	print()
 
 
- 
-    if rounds!= "" and rounds_played >= rounds - 1:
-        break
- 
-    # *** rest of loop / game ***
-    print("You chose {}". format (chose))
- 
-    rounds_played += 1
+
+	if rounds!= "" and rounds_played >= rounds - 1:
+			break
+
+	# *** rest of loop / game ***
+	print("You chose {}". format (chose))
+
+	rounds_played += 1
  
 # Ask user if they want to see their game history.
 # if 'yes' show game history
