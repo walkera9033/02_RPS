@@ -58,11 +58,50 @@ yes_no_list = ["yes", "no"]
 rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # Ask user if they have played before.
-# If 'yes', show instructions
+# If 'no', show instructions
+def yes_no(question):
+	valid = False
+	while not valid: 
+		response = input(question).lower() 
+ 
+		if response == "yes" or response == "y":
+				response = "yes"
+				return response
+				
+		elif response == "no" or response == "n":
+				response = "no"
+				return response
+				
+		else:
+			print("please answer yes/no")
+
+
+def instructions():
+	print ("**** How to Play ****") 
+	print()
+	print ("In this particular game, your aim to win your chosen amount of rounds of Rock, Paper, Scissors against a computer genarator. Each round you will have to chose either r / p / s ")
+	print () 
+	print("*** Game Rules***")
+	print()
+	print("Rock beats scissors")
+	print("Scissors beats paper")
+	print("Paper beats rock")
+	print()
+	print("GOOD LUCK!!!🤞")	
+	return "" 
+
+
+# Main Routine goes here...
+played_before = yes_no("Have you played the game before?")
+
+if played_before == "no":
+	instructions()
+ 
+elif played_before == "yes": 
 
 
 # ask user for # of rounds then loop...
-rounds_played = 0
+ rounds_played = 0
 rounds_lost = 0
 rounds_won = 0
 rounds_drawn = 0
@@ -91,7 +130,7 @@ while end_game == "no":
 	comp_choice = random.choice(rps_list[:-1])
 	print("Comp Choice: ", comp_choice)
 
-	choose = choice_checker("chose rock / paper / scissors (r/p/s): ", rps_list, "Please choose from rock, Paper / scissors (or xxx to quit).")
+	chose = choice_checker("chose rock / paper / scissors (r/p/s): ", rps_list, "Please choose from rock, Paper / scissors (or xxx to quit).")
 
   # End game if exit code is typed
 	if chose == "xxx":
@@ -138,7 +177,7 @@ rounds_won = rounds_played - rounds_lost - rounds_drawn
 # End of game statements
 print ()
 print('***** End Game Summary *****')
-print("Won: {} \t|\t Lost: {} \t|\t Draw: "{}".format(rounds_won, rounds_lost, rounds_drawn))
+print("Won: {} \t|\t Lost: {} \t|\t Draw: {}".format(rounds_won, rounds_lost, rounds_drawn))
 print()
 print("Thanks for playing!")
 
